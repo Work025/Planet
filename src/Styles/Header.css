@@ -1,0 +1,269 @@
+.header {
+    position: fixed;
+    width: 100%;
+    padding: 0 6%;
+    background: rgba(0, 0, 0, 0.5);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+    /* header har doim ustda bo‘lsin */
+}
+
+.header-container {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header-logo h1 {
+    color: #fff;
+    font-size: 30px;
+    font-weight: bold;
+    font-family: 'Orbitron', sans-serif;
+    letter-spacing: 2px;
+    cursor: pointer;
+}
+
+/* ================= WRAPPER ================= */
+
+.header-wrapper {
+    position: absolute;
+    top: 90px;
+    /* header balandligi bilan mos */
+    left: 0;
+    width: 100%;
+    backdrop-filter: blur(15px);
+    /* fonni silliq qilish */
+    background: linear-gradient(180deg,
+            rgba(0, 0, 0, 0.5),
+            /* yuqori qism quyuqroq */
+            rgba(0, 0, 0, 0.1)
+            /* pastga qarab shaffoflashadi */
+        );
+    display: none;
+    /* default yopiq */
+    flex-direction: column;
+    padding: 40px 6%;
+    z-index: 1000;
+    animation: slideDown 0.4s ease;
+    transition: background 0.4s ease;
+    /* hover yoki scroll o‘zgarganda silliq */
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    /* header bilan uyg‘un shadow */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    /* nazokatli chiziq */
+}
+
+.header-wrapper.active {
+    display: flex;
+}
+
+.header-wrapper.active {
+    display: flex;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ================= LIST ================= */
+
+.header-ul {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.header-ul li {
+    width: 100%;
+    height: auto;
+    padding: 10px 0;
+    border-bottom: 2px solid #38bdf8;
+}
+
+.header-ul li a {
+    color: #fff;
+    font-size: 22px;
+    font-weight: 500;
+    font-family: 'Space Grotesk', sans-serif;
+    transition: 0.3s;
+}
+
+.header-ul li a:hover {
+    color: #38bdf8;
+}
+
+/* ================= DROPDOWN TITLE ================= */
+
+.dropdown-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.dropdown-title span {
+    color: #fff;
+    font-size: 25px;
+    font-weight: 500;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.dropdown-title:hover span {
+    color: #38bdf8;
+}
+
+.dropdown-title i {
+    color: #fff;
+    font-size: 14px;
+    transition: 0.3s ease;
+}
+
+.rotate {
+    transform: rotate(180deg);
+}
+
+/* ================= DROPDOWN CONTENT ================= */
+
+.ul-box {
+    display: none;
+    margin-top: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.ul-box.mega {
+    justify-content: flex-start;
+}
+
+.ul-box.show {
+    display: flex;
+}
+
+/* ================= PLANET CARD HORIZONTAL ================= */
+
+.planet-card.horizontal {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    /* rasm pastga joylashadi */
+    gap: 20px;
+    padding: 20px 20px 40px 20px;
+    /* pastga biroz joy qoldirdik */
+    border-radius: 16px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    background: linear-gradient(145deg, #1e293b, #0f172a);
+    flex: 0 0 calc(25% - 20px);
+    /* 4 cards per row */
+}
+
+.planet-card.horizontal::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at right, rgba(255, 255, 255, 0.08), transparent 70%);
+    opacity: 0;
+    transition: 0.4s;
+}
+
+.planet-card.horizontal:hover::before {
+    opacity: 1;
+}
+
+.planet-card.horizontal:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* ================= IMAGE POSITION ================= */
+
+.planet-card.horizontal img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    position: absolute;
+    bottom: -40%;
+    /* default pastga */
+    left: -10%;
+    /* default chap */
+    transition: all 0.5s ease;
+    z-index: 1;
+}
+
+.planet-card.horizontal:hover img {
+    bottom: 12%;
+    /* hover ko‘tariladi */
+    left: 5%;
+    /* hover o‘ngga suriladi */
+    transform: scale(1.2);
+    /* kattalashadi */
+}
+
+/* ================= TEXT ================= */
+
+.planet-info.horizontal {
+    text-align: left;
+    z-index: 2;
+    /* rasm ustida ko‘rinadi */
+    margin-left: 20px;
+    /* rasm bilan oraliq */
+}
+
+.planet-info.horizontal h4 {
+    color: #fff;
+    font-size: 18px;
+    margin-bottom: 2px;
+}
+
+.planet-info.horizontal p {
+    color: #94a3b8;
+    font-size: 13px;
+}
+
+/* ================= HAMBURGER ================= */
+
+.header-menu {
+    color: #fff;
+    font-size: 26px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.header-menu:hover {
+    color: #38bdf8;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 1024px) {
+    .ul-box.mega {
+        flex: 0 0 100%;
+    }
+
+    .planet-card.horizontal {
+        flex: 0 0 48%;
+    }
+}
+
+@media (max-width: 640px) {
+    .header-wrapper {
+        top: 70px;
+        padding: 30px 4%;
+    }
+
+    .planet-card.horizontal {
+        flex: 0 0 100%;
+    }
+}

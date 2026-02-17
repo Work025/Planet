@@ -1,0 +1,114 @@
+/* ================= SECTION ================= */
+.section {
+    position: relative;
+    width: 100%;
+    min-height: 200vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    overflow: hidden;
+}
+
+/* Video fon qotib turadi */
+.section-bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Cardlar ustida ko‘rinadi */
+.section-content {
+    width: 90%;
+    position: relative;
+    z-index: 1;
+    padding: 150px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 100px;
+}
+
+/* Card styling */
+.card {
+    border-radius: 20px;
+    font-size: 24px;
+    color: white;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 50px;
+}
+
+/* Scroll qilganda chiqish */
+.card.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* ================= RESPONSIVE ================= */
+
+/* Tabletlar uchun */
+@media (max-width: 1024px) {
+    .hero {
+        max-width: 90%;
+        padding: 40px 20px;
+    }
+
+    .hero h1 {
+        font-size: 48px;
+    }
+
+    .hero p {
+        font-size: 18px;
+    }
+
+    .explore-button {
+        padding: 12px 30px;
+        font-size: 16px;
+    }
+
+    .section-content {
+        gap: 70px;
+    }
+
+    .card {
+        padding: 40px;
+    }
+}
+
+/* Mobil telefonlar uchun */
+@media (max-width: 640px) {
+    .hero {
+        align-items: center;
+        text-align: center;
+        padding: 30px 15px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+    }
+
+    .hero p {
+        font-size: 16px;
+        line-height: 1.4;
+    }
+
+    .explore-button {
+        padding: 10px 25px;
+        font-size: 14px;
+    }
+
+    .section-content {
+        padding: 100px 10px;
+        gap: 50px;
+    }
+
+    .card {
+        padding: 30px 20px;
+        font-size: 18px;
+    }
+}

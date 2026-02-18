@@ -1,4 +1,5 @@
 import Hero from "./Hero";
+import Planet from "./Planet";
 import earthvideo from "../Assets/EarthVideo.mp4";
 import "../Styles/Section.css";
 import { useEffect } from "react";
@@ -26,9 +27,9 @@ function Section() {
 
             <div className="section-content">
                 <div className="card"><Hero /></div>
-                <div className="card">Card 2</div>
-                <div className="card">Card 3</div>
-                <div className="card">Card 4</div>
+                <div className="planet">
+                    <Planet />
+                </div>
             </div>
         </div>
     );
